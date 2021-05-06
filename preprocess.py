@@ -16,7 +16,7 @@ def preprocess(text):
     return text
 
 normalizer = Normalizer()
-stemmer = Stemmer()
+# stemmer = Stemmer()
 
 raw_data = pd.read_csv('Dataset/DeepSentiPers-original.csv', header=None)                           #loading raw data
 preprocessed_data = []

@@ -26,6 +26,6 @@ Input: Dataset/Preprocessed_Train_Data.csv, Extra/Persian_Dictionary.pickle
 Output: Dataset/Augmented_Train_Data.csv  
 Description: Uses the Persian dictionary to generate new data in minority classes (-2, -1, 2), by replacing words from existing data with their synonyms.  
 Example:  
-![Data augmentation example](https://github.com/PinaxX/ShayaSimpleSentimentTask/tree/main/Images/augmentation.jpg)  
+![Data augmentation example](/Images/augmentation.jpg?raw=true)  
   
 **5- Model training:**  

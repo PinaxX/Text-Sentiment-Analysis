@@ -26,6 +26,18 @@ Input: Dataset/Preprocessed_Train_Data.csv, Extra/Persian_Dictionary.pickle
 Output: Dataset/Augmented_Train_Data.csv  
 Description: Uses the Persian dictionary to generate new data in minority classes (-2, -1, 2), by replacing words from existing data with their synonyms.  
 Example:  
+  
 ![Data augmentation example](/Images/augmentation.jpg?raw=true)  
   
+Data distribution before and after augmentation:  
+  
+![Data distribution](/Images/distribution.jpg?raw=true)  
+  
 **5- Model training:**  
+File: model.py  
+Input: Dataset/Augmented_Train_Data.csv, Dataset/Preprocessed_Test_Data.csv  
+Output: Extra/tokenizer.pickle, Extra/model.h5  
+Description: First trains a Word2Vec model using training data, with WORD_EMBEDDING_DIM = 300. Then fits a tokenizer on training data, turns train and test texts to arrays of tokens, pads these arrays with 0s or truncates them to length = 100 (max length in training data is 297 and average length is 29. that's why I chose 100). Lastly trains a sequential model with this architecture (using keras):  
+  
+![Model architecture](/Images/model_arch.jpg?raw=true)  
+  

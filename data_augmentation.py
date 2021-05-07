@@ -6,7 +6,7 @@ data = pd.read_csv('Dataset/Preprocessed_Train_Data.csv')
 with open('Extra/Persian_Dictionary.pickle', 'rb') as handle:
     persian_dict = pickle.load(handle)                                                      #loading persian dict
 
-augmentation_count_dict = {-2: 3, -1: 2, 2: 1}                                              #number of synonyms (based on class distribution)
+augmentation_count_dict = {-2: 6, -1: 4, 2: 2}                                              #number of synonyms (based on class distribution)
 augmented_data = []
 
 for label in [-2, -1, 2]:                                                                   #minority classes

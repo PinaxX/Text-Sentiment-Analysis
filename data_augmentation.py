@@ -1,7 +1,7 @@
 import pandas as pd
 import pickle
 
-data = pd.read_csv('Dataset/Preprocessed_Data.csv')
+data = pd.read_csv('Dataset/Preprocessed_Train_Data.csv')
 
 with open('Extra/Persian_Dictionary.pickle', 'rb') as handle:
     persian_dict = pickle.load(handle)                                                      #loading persian dict
@@ -25,4 +25,4 @@ for label in [-2, -1, 2]:                                                       
 
 aug_df = pd.DataFrame(augmented_data, columns=['Text', 'Label'])
 df = pd.concat([data, aug_df], ignore_index=True)
-df.to_csv('Dataset/Augmented_Data.csv', index=False)
+df.to_csv('Dataset/Augmented_Train_Data.csv', index=False)

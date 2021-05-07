@@ -6,7 +6,7 @@ I'm going to write this document in the order that the code should run in:
 File: preprocess.py  
 Input: Dataset/DeepSentiPers-original.csv  
 Output: Dataset/Preprocessed_Data  
-Description: Keeps only some punctuation and Farsi characters. Does text normalization (and stemming) usig Hazm. Adds space before punctuation.  
+Description: Keeps only some punctuation and Farsi characters. Does text normalization (and stemming) using Hazm. Adds space before punctuation.  
   
 **2- Train test split:**  
 File: train_test_split.py  
@@ -44,6 +44,10 @@ Description: First trains a Word2Vec model using training data, with WORD_EMBEDD
 Model's result on test data is as follows:  
   
 ![Model result](/Images/model_results.jpg?raw=true)  
+  
+Testing accuracy and F1-score are printed, which are perfectly fine :D  
+F1-score for each class is printed.  
+The overal goal which was making sure the model can learn minority classes almost as well as the majority classes, is achieved!
   
 **6- RestApi:**  
 File: Flask-Main.py  

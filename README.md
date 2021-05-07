@@ -47,7 +47,7 @@ Model's result on test data is as follows:
   
 Testing accuracy and F1-score are printed, which are perfectly fine :D  
 F1-score for each class is printed.  
-The overal goal which was making sure the model can learn minority classes almost as well as the majority classes, is achieved!
+As you can see in the cofusion matrix, the overal goal which was making sure the model can learn minority classes almost as well as the majority classes, is achieved!
   
 **6- RestApi:**  
 File: Flask-Main.py  

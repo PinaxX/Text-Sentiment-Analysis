@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pickle
 from gensim.models import Word2Vec
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 from keras.preprocessing.text import Tokenizer
@@ -24,6 +25,9 @@ w2v_model = Word2Vec(token_corpus, min_count=2, window=5, vector_size=WORD_EMBED
 
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(list(train_data.Text))
+
+with open('Extra/tokenizer.pickle', 'wb') as handle:
+    pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 X_train = tokenizer.texts_to_sequences(train_data.Text)
 X_test = tokenizer.texts_to_sequences(test_data.Text)
@@ -58,6 +62,8 @@ lstm_model.add(Dense(5, activation='softmax'))
 
 lstm_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=[categorical_accuracy])
 hist = lstm_model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, validation_split=0.1)
+
+lstm_model.save('Extra/model.h5')
 
 y_pred = np.argmax(lstm_model.predict(X_test), axis=-1)
 

@@ -3,6 +3,7 @@ import re
 from hazm import *
 
 def preprocess(text):
+    normalizer = Normalizer()
     text = text.strip()
     text = normalizer.normalize(text)                                                               #normalizing
     text = re.sub(r"([?.!,؟،])", r" \1 ", text)                                                     #adding space before punctuation
@@ -15,7 +16,7 @@ def preprocess(text):
     # text = " ".join(stemmed)
     return text
 
-normalizer = Normalizer()
+# normalizer = Normalizer()
 # stemmer = Stemmer()
 
 raw_data = pd.read_csv('Dataset/DeepSentiPers-original.csv', header=None)                           #loading raw data

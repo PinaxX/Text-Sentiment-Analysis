@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="s01" style="position: relative;">
+    <form action="/" method="post" enctype="multipart/form-data" style="position: relative;">
+        <fieldset>
+            <legend>Find the tone behind some comment!</legend>
+        </fieldset>
+        <div class="inner-form" style="position: relative;">
+            <div class="input-field first-wrap">
+                <input name="p1" type="text" placeholder="Comment..." />
+            </div>
+            <div class="input-field third-wrap">
+                <input class="btn-search" type="submit" name="action" value="Find" />
+            </div>
+        </div>
+    </form>
+</div>
+<div style="position: relative;  display: flex;-ms-flex-pack: center;justify-content: center;-ms-flex-align: center;align-items: center;">
+    <img src="static/0.png" style="width:{{sizes[0]}}px;height:{{sizes[0]}}px;">
+    <img src="static/1.png" style="width:{{sizes[1]}}px;height:{{sizes[1]}}px;">
+    <img src="static/2.png" style="width:{{sizes[2]}}px;height:{{sizes[2]}}px;">
+    <img src="static/3.png" style="width:{{sizes[3]}}px;height:{{sizes[3]}}px;">
+    <img src="static/4.png" style="width:{{sizes[4]}}px;height:{{sizes[4]}}px;">
+</div>
+{% endblock %}

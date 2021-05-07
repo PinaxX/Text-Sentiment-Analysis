@@ -37,7 +37,25 @@ Data distribution before and after augmentation:
 File: model.py  
 Input: Dataset/Augmented_Train_Data.csv, Dataset/Preprocessed_Test_Data.csv  
 Output: Extra/tokenizer.pickle, Extra/model.h5  
-Description: First trains a Word2Vec model using training data, with WORD_EMBEDDING_DIM = 300. Then fits a tokenizer on training data, turns train and test texts to arrays of tokens, pads these arrays with 0s or truncates them to length = 100 (max length in training data is 297 and average length is 29. that's why I chose 100). Lastly trains a sequential model with this architecture (using keras):  
+Description: First trains a Word2Vec model using training data, with WORD_EMBEDDING_DIM = 300. Then fits a tokenizer on training data, turns train and test texts to arrays of tokens, pads these arrays with 0s or truncates them to length = 100 (max length in training data is 297 and average length is 29, that's why I chose 100). Lastly trains a sequential model with this architecture (using keras):  
   
 ![Model architecture](/Images/model_arch.jpg?raw=true)  
   
+Model's result on test data is as follows:  
+  
+![Model result](/Images/model_results.jpg?raw=true)  
+  
+**6- RestApi:**  
+File: Flask-Main.py  
+Input: Extra/tokenizer.pickle, Extra/model.h5  
+Description: Using Flask, the fitted tokenizer and the trained model, a RestApi is developed. Related files are stored in /static, /templates. The main page looks like this:  
+  
+![Main page](/Images/main.jpg?raw=true)  
+  
+And here are some examples of what happens when you search for a tone of a comment:  
+  
+![Happy](/Images/happy.jpg?raw=true)  
+  
+![Neutral](/Images/neutral.jpg?raw=true)  
+  
+![Angry](/Images/angry.jpg?raw=true)

@@ -37,9 +37,11 @@ Data distribution before and after augmentation:
 File: model.py  
 Input: Dataset/Augmented_Train_Data.csv, Dataset/Preprocessed_Test_Data.csv  
 Output: Extra/tokenizer.pickle, Extra/model.h5  
-Description: First trains a Word2Vec model using training data, with WORD_EMBEDDING_DIM = 300. Then fits a tokenizer on training data, turns train and test texts to arrays of tokens, pads these arrays with 0s or truncates them to length = 100 (max length in training data is 297 and average length is 29, that's why I chose 100). Lastly trains a sequential model with this architecture (using keras):  
+Description: First trains a Word2Vec model using training data (and Gensim), with WORD_EMBEDDING_DIM = 300. Then fits a tokenizer on training data, turns train and test texts to arrays of tokens, pads these arrays with 0s or truncates them to length = 100 (max length in training data is 297 and average length is 29, that's why I chose 100). Lastly trains a sequential model with this architecture (using keras):  
   
 ![Model architecture](/Images/model_arch.jpg?raw=true)  
+  
+The vectors learned by the Word2Vec model are passed to the embedding layer as a non-trainable weight matrix.  
   
 Model's result on test data is as follows:  
   
@@ -62,4 +64,11 @@ And here are some examples of what happens when you search for a tone of a comme
   
 ![Neutral](/Images/neutral.jpg?raw=true)  
   
-![Angry](/Images/angry.jpg?raw=true)
+![Angry](/Images/angry.jpg?raw=true)  
+  
+**7- Future work:**  
+For the future I would like to:  
+  * Check model's result after removing Persian stop-words from the corpus.
+  * Write a better data augmentation script. It's good right now but not great. (Maybe selecting the words that are going to change instead of changing them where its possible)
+  * Try letting the LSTM model learn word embeddings for itself, instead of getting them from another model.
+  * Try using a powerful pre-trained transformer-based model for learning word embeddings (such as BERT).
